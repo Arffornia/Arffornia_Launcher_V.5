@@ -10,6 +10,13 @@ public class LauncherController {
         this.msAuth = new MsAuth();
     }
 
+    public void onStartupEvent() {
+        // Check auth by token
+        if(this.msAuth.tryToAuthByToken()) {
+            // TODO load login view
+        }
+    }
+
     public void launchGameSequence() {
         // check auth
         if(!this.msAuth.getIsAuth()) {

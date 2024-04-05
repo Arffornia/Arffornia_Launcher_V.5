@@ -37,6 +37,8 @@ public class Launcher extends Application {
         this.initGameDir();
         this.initLogger();
         this.initSaver();
+
+        this.launcherController.onStartupEvent();
     }
 
     @Override

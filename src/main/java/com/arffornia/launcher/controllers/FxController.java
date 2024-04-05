@@ -9,7 +9,7 @@ public class FxController {
     @FXML private Button playBtn;
 
     @FXML protected void onAuthBtnClick() {
-        Launcher.getApp().getLauncherController().getMsAuth().auth();
+        Launcher.getApp().getLauncherController().getMsAuth().authByIds();
     }
 
     @FXML protected void onPlayBtnClick() {
