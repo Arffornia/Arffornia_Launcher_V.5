@@ -1,5 +1,6 @@
 package com.arffornia.launcher;
 
+import com.arffornia.launcher.controllers.LauncherController;
 import fr.flowarg.flowlogger.ILogger;
 import fr.flowarg.flowlogger.Logger;
 import fr.theshark34.openlauncherlib.minecraft.util.GameDirGenerator;
@@ -12,18 +13,27 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.nio.file.Path;
+import java.util.Objects;
 
-public class MainApp extends Application {
+public class Launcher extends Application {
     private static final String GAME_DIR_NAME = "Arffornia_V.5";
-    private static ILogger logger;
-    private static Path gameDir;
-    private static Saver saver;
+
+    private static Launcher app;
+
+    private ILogger logger;
+    private Path gameDir;
+    private Saver saver;
+    private final LauncherController launcherController;
 
     public static void main(String[] args) {
         launch();
     }
 
-    public MainApp() {
+    public Launcher() {
+        app = this;
+
+        this.launcherController = new LauncherController();
+
         this.initGameDir();
         this.initLogger();
         this.initSaver();
@@ -31,12 +41,13 @@ public class MainApp extends Application {
 
     @Override
     public void start(Stage stage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(MainApp.class.getResource("main.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(Launcher.class.getResource("main.fxml"));
 
-        stage.getIcons().add(new Image(getClass().getResourceAsStream("img/Crafting_Table.png")));
         stage.setTitle("Arffornia Launcher");
+        stage.getIcons().add(new Image(Objects.requireNonNull(getClass()
+                .getResourceAsStream("img/Crafting_Table.png"))));
 
-        Scene scene = new Scene(fxmlLoader.load(), 1280, 720);
+        Scene scene = new Scene(fxmlLoader.load(), 720, 480);
         scene.getStylesheets().add(String.valueOf(getClass().getResource("css/style.css")));
         stage.setScene(scene);
 
@@ -56,20 +67,28 @@ public class MainApp extends Application {
         }
     }
 
-    public static Saver getSaver() {
-        return saver;
-    }
-
-    public static Path getGameDir() {
-        return gameDir;
-    }
-
     private void initSaver() {
         saver = new Saver(gameDir.resolve("launcher.properties"));
         saver.load();
     }
 
-    public static ILogger getLogger() {
+    public static Launcher getApp() {
+        return app;
+    }
+
+    public Saver getSaver() {
+        return saver;
+    }
+
+    public Path getGameDir() {
+        return gameDir;
+    }
+
+    public ILogger getLogger() {
         return logger;
+    }
+
+    public LauncherController getLauncherController() {
+        return launcherController;
     }
 }

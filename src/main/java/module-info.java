@@ -12,4 +12,6 @@ module com.arffornia.launcher {
 
     opens com.arffornia.launcher to javafx.fxml;
     exports com.arffornia.launcher;
+    exports com.arffornia.launcher.controllers;
+    opens com.arffornia.launcher.controllers to javafx.fxml;
 }

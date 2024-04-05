@@ -1,61 +1,58 @@
 package com.arffornia.launcher.auth;
 
-import com.arffornia.launcher.MainApp;
+import com.arffornia.launcher.Launcher;
 import fr.litarvan.openauth.microsoft.MicrosoftAuthenticator;
 import fr.theshark34.openlauncherlib.minecraft.AuthInfos;
-
-import java.util.UUID;
+import javafx.application.Platform;
+import javafx.scene.control.Alert;
 
 public class MsAuth {
-    public void authenticate(String user) {
-        AuthInfos infos = new AuthInfos(
-                user,
-                UUID.randomUUID().toString(),
-                UUID.randomUUID().toString()
-        );
-        MainApp.getSaver().set("offline-username", infos.getUsername());
-        MainApp.getSaver().save();
-        //Launcher.getInstance().setAuthInfos(infos);
+    private boolean isAuth;
+    private AuthInfos authInfos;
 
-        MainApp.getLogger().info("Hello " + infos.getUsername());
-
-        //panelManager.showPanel(new App());
+    public MsAuth() {
+        this.isAuth = false;
     }
 
-    public void authenticateMS() {
-        //offlineAuth.set(false);
+    public void auth() {
         MicrosoftAuthenticator authenticator = new MicrosoftAuthenticator();
-        authenticator.loginWithAsyncWebview().whenComplete((response, error) -> {
-            if (error != null) {
+        authenticator.loginWithAsyncWebview().whenComplete((rep, err) -> {
+            if (err != null) {
                 System.out.println("Error 1");
-                /*
-                Launcher.getInstance().getLogger().err(error.toString());
+
+                Launcher.getApp().getLogger().err(err.toString());
                 Platform.runLater(()-> {
                     Alert alert = new Alert(Alert.AlertType.ERROR);
-                    alert.setTitle("Erreur");
-                    alert.setContentText(error.getMessage());
+                    alert.setTitle("Auth error");
+                    alert.setContentText(err.getMessage());
                     alert.show();
-                });*/
+                });
 
                 return;
             }
 
-            MainApp.getSaver().set("msAccessToken", response.getAccessToken());
-            MainApp.getSaver().set("msRefreshToken", response.getRefreshToken());
-            MainApp.getSaver().save();
-            /*
-            Launcher.getInstance().setAuthInfos(new AuthInfos(
-                    response.getProfile().getName(),
-                    response.getAccessToken(),
-                    response.getProfile().getId(),
-                    response.getXuid(),
-                    response.getClientId()
-            ));*/
+            this.isAuth = true;
+            this.authInfos = new AuthInfos(
+                    rep.getProfile().getName(),
+                    rep.getAccessToken(),
+                    rep.getProfile().getId(),
+                    rep.getXuid(),
+                    rep.getClientId()
+            );
 
-            MainApp.getLogger().info("Hello " + response.getProfile().getName());
-            System.out.println(response);
+            Launcher.getApp().getSaver().set("msAccessToken", rep.getAccessToken());
+            Launcher.getApp().getSaver().set("msRefreshToken", rep.getRefreshToken());
+            Launcher.getApp().getSaver().save();
 
-            //Platform.runLater(() -> panelManager.showPanel(new App()));
+            Launcher.getApp().getLogger().info("Success to auth " + rep.getProfile().getName());
         });
+    }
+
+    public boolean getIsAuth() {
+        return isAuth;
+    }
+
+    public AuthInfos getAuthInfos() {
+        return authInfos;
     }
 }
