@@ -3,6 +3,7 @@ package com.arffornia.launcher.controllers;
 import com.arffornia.launcher.Launcher;
 import com.arffornia.launcher.errors.LauncherError;
 import fr.flowarg.flowupdater.FlowUpdater;
+import fr.flowarg.flowupdater.download.json.CurseFileInfo;
 import fr.flowarg.flowupdater.versions.AbstractForgeVersion;
 import fr.flowarg.flowupdater.versions.ForgeVersionBuilder;
 import fr.flowarg.flowupdater.versions.ForgeVersionType;
@@ -14,13 +15,14 @@ import javafx.application.Platform;
 
 import java.util.Arrays;
 import java.util.Collections;
+import java.util.List;
 
 public class McController {
     private static final String VANILLA_VERSION = "1.20.1";
     private static final String FORGE_VERSION = "47.1.103";
     private static final String NEO_FORGE_VERSION = VANILLA_VERSION + "-" + FORGE_VERSION;
 
-    private static final String MOD_LIST_URL = "";
+    private static final String MOD_LIST_URL = "http://arffornia.test/api/arffornia_v5/modlist";
     private static final String EXTERNAL_MOD_LIST_URL = "";
 
     public void update() throws Exception {
@@ -28,11 +30,11 @@ public class McController {
                 .withName(VANILLA_VERSION)
                 .build();
 
-        //List<CurseFileInfo> curseForgeModList = CurseFileInfo.getFilesFromJson(MOD_LIST_URL);
+        List<CurseFileInfo> curseForgeModList = CurseFileInfo.getFilesFromJson(MOD_LIST_URL);
 
         final AbstractForgeVersion forgeVersion = new ForgeVersionBuilder(ForgeVersionType.NEO_FORGE)
                 .withForgeVersion(NEO_FORGE_VERSION)
-                //.withCurseMods(curseForgeModList)
+                .withCurseMods(curseForgeModList)
                 //.withFileDeleter(new ModFileDeleter(true)) // delete bad mods
                 .build();
 
