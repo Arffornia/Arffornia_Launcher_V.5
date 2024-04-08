@@ -54,6 +54,19 @@ public class BestPlayerVote {
         return bestPlayerVote;
     }
 
+    public String toString() {
+        if(this.playerVoteList.isEmpty()) {
+            return "";
+        }
+
+        StringBuilder stringBuilder = new StringBuilder(this.playerVoteList.get(0).toString());
+        for(int i = 1; i < this.playerVoteList.size(); i++) {
+            stringBuilder.append('\n').append(this.playerVoteList.get(i).toString());
+        }
+
+        return stringBuilder.toString();
+    }
+
     public List<PlayerVote> getPlayerVoteList() {
         return playerVoteList;
     }

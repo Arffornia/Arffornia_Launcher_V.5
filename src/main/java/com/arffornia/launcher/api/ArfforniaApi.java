@@ -2,10 +2,7 @@ package com.arffornia.launcher.api;
 
 import com.arffornia.launcher.errors.LauncherError;
 import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
-import com.google.gson.JsonStreamParser;
-import com.google.gson.stream.JsonReader;
 import org.jetbrains.annotations.Nullable;
 
 import java.io.BufferedReader;
@@ -43,6 +40,4 @@ public class ArfforniaApi {
 
         return null;
     }
-
-
 }

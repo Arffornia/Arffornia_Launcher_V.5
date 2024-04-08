@@ -9,6 +9,10 @@ public class PlayerVote {
         this.voteCount = voteCount;
     }
 
+    public String toString() {
+        return String.format("playerName: %s, voteCount: %d", playerName, voteCount);
+    }
+
     public String getPlayerName() {
         return playerName;
     }
