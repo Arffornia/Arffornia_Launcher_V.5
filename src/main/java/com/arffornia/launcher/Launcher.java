@@ -1,5 +1,7 @@
 package com.arffornia.launcher;
 
+import com.arffornia.launcher.api.objects.BestPlayerVote;
+import com.arffornia.launcher.api.objects.PlayerVote;
 import com.arffornia.launcher.controllers.LauncherController;
 import fr.flowarg.flowlogger.ILogger;
 import fr.flowarg.flowlogger.Logger;
