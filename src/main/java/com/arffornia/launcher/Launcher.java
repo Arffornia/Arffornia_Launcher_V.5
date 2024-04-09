@@ -1,6 +1,7 @@
 package com.arffornia.launcher;
 
 import com.arffornia.launcher.controllers.LauncherController;
+import com.arffornia.launcher.listeners.WindowFocusListener;
 import fr.flowarg.flowlogger.ILogger;
 import fr.flowarg.flowlogger.Logger;
 import fr.theshark34.openlauncherlib.minecraft.util.GameDirGenerator;
@@ -51,8 +52,10 @@ public class Launcher extends Application {
 
         Scene scene = new Scene(fxmlLoader.load(), 720, 480);
         scene.getStylesheets().add(String.valueOf(getClass().getResource("css/style.css")));
-        stage.setScene(scene);
 
+        WindowFocusListener.addListener(scene);
+
+        stage.setScene(scene);
         stage.show();
     }
 
