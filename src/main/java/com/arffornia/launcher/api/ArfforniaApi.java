@@ -13,7 +13,7 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 
 public class ArfforniaApi {
-    private static final String API_URL = "http://arffornia.test/api/";
+    private static final String API_URL = "http://localhost/api/";
 
     @Nullable
     public static JsonElement getResponse(String apiRequest) {

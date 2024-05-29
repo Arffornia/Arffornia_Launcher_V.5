@@ -10,11 +10,13 @@ public class PlayerProfile {
     private static final String REQUEST_URL = "profile/{playerName}";
 
     private String name;
+    private String uuid;
     private int money;
     private int voteCount;
 
-    private PlayerProfile(String name, int money, int voteCount) {
+    private PlayerProfile(String name, String uuid, int money, int voteCount) {
         this.name = name;
+        this.uuid = uuid;
         this.money = money;
         this.voteCount = voteCount;
     }
@@ -25,13 +27,16 @@ public class PlayerProfile {
 
         if(jsonElement == null) { return null; }
         JsonObject jsonObject = jsonElement.getAsJsonObject();
-        if(!(jsonObject.has("money") && jsonObject.has("vote_count"))) {
+        if(!(   jsonObject.has("uuid")
+                && jsonObject.has("money")
+                && jsonObject.has("vote_count"))) {
             new LauncherError("Api response error", "Invalid player profile struct.");
             return null;
         }
 
         return new PlayerProfile(
                 playerName,
+                jsonObject.getAsJsonPrimitive("uuid").getAsString(),
                 jsonObject.getAsJsonPrimitive("money").getAsInt(),
                 jsonObject.getAsJsonPrimitive("vote_count").getAsInt()
         );
@@ -51,5 +56,14 @@ public class PlayerProfile {
 
     public int getMoney() {
         return money;
+    }
+
+    public String getUuid() {
+
+        return uuid;
+    }
+
+    public void setUuid(String uuid) {
+        this.uuid = uuid;
     }
 }

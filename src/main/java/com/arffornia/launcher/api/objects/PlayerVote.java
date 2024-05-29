@@ -2,10 +2,12 @@ package com.arffornia.launcher.api.objects;
 
 public class PlayerVote {
     private String playerName;
+    private String uuid;
     private int voteCount;
 
-    public PlayerVote(String playerName, int voteCount) {
+    public PlayerVote(String playerName, String uuid, int voteCount) {
         this.playerName = playerName;
+        this.uuid = uuid;
         this.voteCount = voteCount;
     }
 
@@ -19,5 +21,9 @@ public class PlayerVote {
 
     public int getVoteCount() {
         return voteCount;
+    }
+
+    public String getUuid() {
+        return uuid;
     }
 }

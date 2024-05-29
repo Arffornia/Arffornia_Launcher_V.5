@@ -38,15 +38,18 @@ public class BestPlayerVote {
             if (elem.isJsonObject()) {
                 JsonObject playerInfoObj = elem.getAsJsonObject();
 
-                if (!(playerInfoObj.has("name") && playerInfoObj.has("vote_count"))) {
+                if (!(playerInfoObj.has("name")
+                        && playerInfoObj.has("uuid")
+                        && playerInfoObj.has("vote_count"))) {
                     new LauncherError("Api response error", "Invalid player vote struct.");
                     return null;
                 }
 
                 String name = playerInfoObj.getAsJsonPrimitive("name").getAsString();
+                String uuid = playerInfoObj.getAsJsonPrimitive("uuid").getAsString();
                 int voteCount = playerInfoObj.getAsJsonPrimitive("vote_count").getAsInt();
 
-                PlayerVote playerVote = new PlayerVote(name, voteCount);
+                PlayerVote playerVote = new PlayerVote(name, uuid, voteCount);
                 bestPlayerVote.playerVoteList.add(playerVote);
             }
         }

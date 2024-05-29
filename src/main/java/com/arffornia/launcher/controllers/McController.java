@@ -22,7 +22,7 @@ public class McController {
     private static final String FORGE_VERSION = "47.1.103";
     private static final String NEO_FORGE_VERSION = VANILLA_VERSION + "-" + FORGE_VERSION;
 
-    private static final String MOD_LIST_URL = "http://arffornia.test/api/arffornia_v5/modlist";
+    private static final String MOD_LIST_URL = "http://localhost/api/arffornia_v5/modlist";
     private static final String EXTERNAL_MOD_LIST_URL = "";
 
     public void update() throws Exception {

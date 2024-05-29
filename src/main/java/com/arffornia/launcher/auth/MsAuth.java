@@ -21,8 +21,6 @@ public class MsAuth {
         MicrosoftAuthenticator authenticator = new MicrosoftAuthenticator();
         authenticator.loginWithAsyncWebview().whenComplete((rep, err) -> {
             if (err != null) {
-                System.out.println("Error 1");
-
                 Launcher.getApp().getLogger().err(err.toString());
                 Platform.runLater(()-> {
                     Alert alert = new Alert(Alert.AlertType.ERROR);
