@@ -1,4 +1,4 @@
-package com.arffornia.launcher.api.objects;
+package com.arffornia.launcher.api.objects.vote;
 
 public class PlayerVote {
     private String playerName;

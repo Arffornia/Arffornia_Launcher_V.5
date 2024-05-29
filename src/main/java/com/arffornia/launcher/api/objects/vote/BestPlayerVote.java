@@ -1,4 +1,4 @@
-package com.arffornia.launcher.api.objects;
+package com.arffornia.launcher.api.objects.vote;
 
 import com.arffornia.launcher.api.ArfforniaApi;
 import com.arffornia.launcher.errors.LauncherError;
