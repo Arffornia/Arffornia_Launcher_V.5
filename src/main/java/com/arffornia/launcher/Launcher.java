@@ -1,5 +1,6 @@
 package com.arffornia.launcher;
 
+import com.arffornia.launcher.controllers.FxController;
 import com.arffornia.launcher.controllers.LauncherController;
 import com.arffornia.launcher.listeners.WindowFocusListener;
 import fr.flowarg.flowlogger.ILogger;
