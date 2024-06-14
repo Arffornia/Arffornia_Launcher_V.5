@@ -27,10 +27,6 @@ public class Launcher extends Application {
     private Saver saver;
     private final LauncherController launcherController;
 
-    public static void main(String[] args) {
-        launch();
-    }
-
     public Launcher() {
         app = this;
 
@@ -51,7 +47,7 @@ public class Launcher extends Application {
         stage.getIcons().add(new Image(Objects.requireNonNull(getClass()
                 .getResourceAsStream("img/Crafting_Table.png"))));
 
-        Scene scene = new Scene(fxmlLoader.load(), 720, 480);
+        Scene scene = new Scene(fxmlLoader.load(), 1280, 720);
         scene.getStylesheets().add(String.valueOf(getClass().getResource("css/style.css")));
 
         WindowFocusListener.addListener(scene);

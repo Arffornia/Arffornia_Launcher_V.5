@@ -1,3 +1,9 @@
 #mainBgAnchorPane {
     -fx-background-color: #414141;
 }
+
+.bgImg {
+    -fx-background-size: contain;
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: center;
+}
