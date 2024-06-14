@@ -52,6 +52,12 @@ public class Launcher extends Application {
 
         WindowFocusListener.addListener(scene);
 
+        FxController controller = fxmlLoader.getController();
+        stage.setOnHidden(e -> controller.shutdown());
+
+        stage.setMinWidth(1280);
+        stage.setMinHeight(720);
+
         stage.setScene(scene);
         stage.show();
     }

@@ -8,9 +8,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ImagesLoader {
-    public static List<Image> loadImagesFromFolder(String folderPath) {
+    public static List<Image> loadImagesFromFolder(Path folderPath) {
         List<Image> images = new ArrayList<>();
-        File folder = new File(folderPath);
+        File folder = folderPath.toFile();
         System.out.println("Path: " + folder.getAbsolutePath());
         File[] listOfFiles = folder.listFiles();
 

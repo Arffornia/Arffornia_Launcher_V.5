@@ -4,12 +4,9 @@ import com.arffornia.launcher.Launcher;
 import com.arffornia.launcher.ui.ImagesLoader;
 import javafx.animation.FadeTransition;
 import javafx.animation.ParallelTransition;
-import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
-import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.util.Duration;
 
@@ -32,21 +29,31 @@ public class FxController {
 
 
     private List<Image> images;
+    private Thread bgThread = null;
 
     public void initialize() {
 
         // Image carousel (need to fix zombie thread)
-        images = ImagesLoader.loadImagesFromFolder("src/main/resources/com/arffornia/launcher/img/bg/");
+        images = ImagesLoader.loadImagesFromFolder(Launcher.getApp().getGameDir().resolve("bgImages"));
         bgPane1.setStyle("-fx-background-image: url('" + images.get(0).getUrl() + "');");
 
-        new Thread(() -> {
+        bgThread = new Thread(() -> {
             try {
                 bgTransition();
-            } catch (InterruptedException e) {
-                throw new RuntimeException(e);
+            } catch (InterruptedException ignored) {
             }
-        }).start();
+        });
 
+        bgThread.start();
+
+    }
+
+    public void shutdown() {
+        System.out.println("Stop thread");
+
+        if(bgThread != null) {
+            bgThread.interrupt();
+        }
     }
 
     private void bgTransition() throws InterruptedException {
