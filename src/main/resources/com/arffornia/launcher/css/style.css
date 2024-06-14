@@ -25,3 +25,12 @@
     -fx-background-radius: 25px;
 }
 
+.overlayContent {
+    -fx-background-color: rgba(0, 0, 0, 0.637);
+    -fx-background-radius: 20px;
+    -fx-border-radius: 15px;
+    -fx-border-width: 5px;
+    -fx-border-color: #ff7300;
+    -fx-padding: 30px;
+}
+

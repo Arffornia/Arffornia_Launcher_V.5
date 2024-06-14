@@ -16,6 +16,13 @@ public class FxController {
     @FXML private Pane bgPane1;
     @FXML private Pane bgPane2;
 
+    //Pages:
+    @FXML private Pane profilePage;
+    @FXML private Pane mcPage;
+    @FXML private Pane photoPage;
+    @FXML private Pane notifPage;
+    @FXML private Pane settingsPage;
+
     @FXML private Button authBtn;
     @FXML private Button playBtn;
 
