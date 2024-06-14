@@ -35,7 +35,7 @@ public class FxController {
 
     public void initialize() {
 
-        /* Image carousel (need to fix zombie thread)
+        // Image carousel (need to fix zombie thread)
         images = ImagesLoader.loadImagesFromFolder("src/main/resources/com/arffornia/launcher/img/bg/");
         bgPane1.setStyle("-fx-background-image: url('" + images.get(0).getUrl() + "');");
 
@@ -47,7 +47,6 @@ public class FxController {
             }
         }).start();
 
-         */
     }
 
     private void bgTransition() throws InterruptedException {
