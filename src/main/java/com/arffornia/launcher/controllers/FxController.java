@@ -8,6 +8,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.image.Image;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.util.Duration;
 
@@ -18,11 +19,11 @@ public class FxController {
     @FXML private Pane bgPane2;
 
     //Pages:
-    @FXML private Pane profilePage;
-    @FXML private Pane mcPage;
-    @FXML private Pane photoPage;
-    @FXML private Pane notifPage;
-    @FXML private Pane settingsPage;
+    @FXML private AnchorPane profilePage;
+    @FXML private AnchorPane mcPage;
+    @FXML private AnchorPane photoPage;
+    @FXML private AnchorPane notifPage;
+    @FXML private AnchorPane settingsPage;
 
     //Scroll Pane
     @FXML private ScrollPane notifScrollPane;
@@ -121,5 +122,41 @@ public class FxController {
             double deltaY = scrollEvent.getDeltaY() * SPEED;
             notifScrollPane.setVvalue(notifScrollPane.getVvalue() - deltaY);
         });
+    }
+
+    private void pageSwitcher(int pageIndex) {
+        AnchorPane[] pages = new AnchorPane[] { profilePage, mcPage, photoPage, notifPage, settingsPage };
+        for(int i = 0; i < pages.length; i++) {
+            if(i == pageIndex) {
+                pages[i].setVisible(true);
+            } else {
+                pages[i].setVisible(false);
+            }
+        }
+    }
+
+    @FXML
+    private void goToProfilePage() {
+        this.pageSwitcher(0);
+    }
+
+    @FXML
+    private void goToMcPage() {
+        this.pageSwitcher(1);
+    }
+
+    @FXML
+    private void goToPhotoPage() {
+        this.pageSwitcher(2);
+    }
+
+    @FXML
+    private void goToNotifPage() {
+        this.pageSwitcher(3);
+    }
+
+    @FXML
+    private void goToSettingsPage() {
+        this.pageSwitcher(4);
     }
 }

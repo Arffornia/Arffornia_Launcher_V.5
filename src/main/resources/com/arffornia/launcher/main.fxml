@@ -24,7 +24,7 @@
                <children>
                   <VBox alignment="TOP_CENTER" layoutX="50.0" layoutY="220.0" prefHeight="720.0" prefWidth="115.0" spacing="85.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                      <children>
-                        <Button graphicTextGap="0.0" lineSpacing="4.0" mnemonicParsing="false" styleClass="navBtn">
+                        <Button graphicTextGap="0.0" lineSpacing="4.0" mnemonicParsing="false" onMousePressed="#goToProfilePage" styleClass="navBtn">
                            <graphic>
                               <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
@@ -35,7 +35,7 @@
                         </Button>
                         <VBox alignment="CENTER" prefHeight="380.0" prefWidth="142.0" spacing="15.0" styleClass="navBtnBg" VBox.vgrow="ALWAYS">
                            <children>
-                              <Button graphicTextGap="0.0" lineSpacing="4.0" mnemonicParsing="false" styleClass="navBtn">
+                              <Button graphicTextGap="0.0" lineSpacing="4.0" mnemonicParsing="false" onMousePressed="#goToMcPage" styleClass="navBtn">
                                  <graphic>
                                     <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
                                        <image>
@@ -44,7 +44,7 @@
                                     </ImageView>
                                  </graphic>
                               </Button>
-                              <Button graphicTextGap="0.0" mnemonicParsing="false" styleClass="navBtn">
+                              <Button graphicTextGap="0.0" mnemonicParsing="false" onMousePressed="#goToPhotoPage" styleClass="navBtn">
                                  <graphic>
                                     <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
                                        <image>
@@ -53,7 +53,7 @@
                                     </ImageView>
                                  </graphic>
                               </Button>
-                              <Button graphicTextGap="0.0" mnemonicParsing="false" styleClass="navBtn">
+                              <Button graphicTextGap="0.0" mnemonicParsing="false" onMousePressed="#goToNotifPage" styleClass="navBtn">
                                  <graphic>
                                     <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
                                        <image>
@@ -63,7 +63,7 @@
                                  </graphic>
                               </Button>
                            </children></VBox>
-                        <Button graphicTextGap="0.0" lineSpacing="4.0" mnemonicParsing="false" styleClass="navBtn">
+                        <Button graphicTextGap="0.0" lineSpacing="4.0" mnemonicParsing="false" onMousePressed="#goToSettingsPage" styleClass="navBtn">
                            <graphic>
                               <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
@@ -88,11 +88,11 @@
             <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="450.0" smooth="false" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="3.0" />
             <AnchorPane prefHeight="720.0" prefWidth="1148.0">
                <children>
-                  <AnchorPane fx:id="profilePage" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                  <AnchorPane fx:id="profilePage" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                      <children>
                         <HBox layoutX="465.1428571428571" layoutY="180.0" prefHeight="306.0" prefWidth="554.0" styleClass="overlayContent" AnchorPane.rightAnchor="128.57142857142856">
                            <children>
-                              <VBox alignment="CENTER_RIGHT" prefHeight="720.0" prefWidth="272.0" spacing="5.0">
+                              <VBox alignment="CENTER_RIGHT" prefHeight="307.0" prefWidth="277.0" spacing="5.0">
                                  <children>
                                     <Label text="Pseudo : " textFill="WHITE">
                                        <font>
@@ -214,7 +214,7 @@
                            </children>
                         </VBox>
                      </children></AnchorPane>
-                  <AnchorPane fx:id="notifPage" layoutX="20.0" layoutY="20.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                  <AnchorPane fx:id="notifPage" layoutX="20.0" layoutY="20.0" prefHeight="200.0" prefWidth="200.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                      <children>
                         <ScrollPane fx:id="notifScrollPane" hbarPolicy="NEVER" prefHeight="842.0" prefWidth="1148.0" styleClass="cleanBg" vbarPolicy="NEVER" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                            <content>
