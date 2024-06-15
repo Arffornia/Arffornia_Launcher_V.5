@@ -86,7 +86,7 @@
             <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="450.0" smooth="false" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="3.0" />
             <AnchorPane prefHeight="720.0" prefWidth="1148.0">
                <children>
-                  <AnchorPane fx:id="profilePage" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                  <AnchorPane fx:id="profilePage" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                      <children>
                         <HBox layoutX="465.1428571428571" layoutY="180.0" prefHeight="306.0" prefWidth="554.0" styleClass="overlayContent" AnchorPane.rightAnchor="128.57142857142856">
                            <children>
@@ -171,7 +171,47 @@
                         </VBox>
                      </children>
                   </AnchorPane>
-                  <AnchorPane fx:id="mcPage" layoutX="10.0" layoutY="10.0" prefHeight="200.0" prefWidth="200.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                  <AnchorPane fx:id="mcPage" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <children>
+                        <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="35.0" AnchorPane.rightAnchor="35.0" AnchorPane.topAnchor="0.0">
+                           <children>
+                              <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                                 <children>
+                                    <Button graphicTextGap="0.0" mnemonicParsing="false" prefHeight="125.0" prefWidth="76.0" styleClass="photoBtn" textFill="WHITE">
+                                       <font>
+                                          <Font size="72.0" />
+                                       </font>
+                                       <graphic>
+                                          <ImageView fitHeight="118.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true" rotate="180.0">
+                                             <image>
+                                                <Image url="@img/icon/arrow/arrow-angle-pointing-to-right2.png" />
+                                             </image>
+                                          </ImageView>
+                                       </graphic>
+                                    </Button>
+                                    <HBox prefHeight="100.0" prefWidth="200.0" HBox.hgrow="ALWAYS">
+                                       <HBox.margin>
+                                          <Insets />
+                                       </HBox.margin>
+                                    </HBox>
+                                    <Button graphicTextGap="0.0" mnemonicParsing="false" prefHeight="125.0" prefWidth="76.0" rotate="180.0" styleClass="photoBtn" textFill="WHITE">
+                                       <font>
+                                          <Font size="72.0" />
+                                       </font>
+                                       <graphic>
+                                          <ImageView fitHeight="118.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true" rotate="180.0">
+                                             <image>
+                                                <Image url="@img/icon/arrow/arrow-angle-pointing-to-right2.png" />
+                                             </image>
+                                          </ImageView>
+                                       </graphic>
+                                    </Button>
+                                 </children>
+                              </HBox>
+                           </children>
+                        </VBox>
+                     </children>
+                  </AnchorPane>
                   <AnchorPane fx:id="photoPage" layoutX="20.0" layoutY="20.0" prefHeight="200.0" prefWidth="200.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
                   <AnchorPane fx:id="notifPage" layoutX="20.0" layoutY="20.0" prefHeight="200.0" prefWidth="200.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
                   <AnchorPane fx:id="settingsPage" layoutX="20.0" layoutY="20.0" prefHeight="200.0" prefWidth="200.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />

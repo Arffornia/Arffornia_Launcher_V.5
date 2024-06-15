@@ -34,3 +34,9 @@
     -fx-padding: 30px;
 }
 
+/* Photo page */
+.photoBtn {
+    -fx-background-color: rgba(0, 0, 0, 0);
+    -fx-padding: 0px;
+}
+
