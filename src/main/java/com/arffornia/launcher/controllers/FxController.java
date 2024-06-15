@@ -6,6 +6,7 @@ import javafx.animation.FadeTransition;
 import javafx.animation.ParallelTransition;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.ScrollPane;
 import javafx.scene.image.Image;
 import javafx.scene.layout.Pane;
 import javafx.util.Duration;
@@ -23,6 +24,9 @@ public class FxController {
     @FXML private Pane notifPage;
     @FXML private Pane settingsPage;
 
+    //Scroll Pane
+    @FXML private ScrollPane notifScrollPane;
+
     @FXML private Button authBtn;
     @FXML private Button playBtn;
 
@@ -35,24 +39,10 @@ public class FxController {
     }
 
 
-    private List<Image> images;
-    private Thread bgThread = null;
 
     public void initialize() {
-
-        // Image carousel (need to fix zombie thread)
-        images = ImagesLoader.loadImagesFromFolder(Launcher.getApp().getGameDir().resolve("bgImages"));
-        bgPane1.setStyle("-fx-background-image: url('" + images.get(0).getUrl() + "');");
-
-        bgThread = new Thread(() -> {
-            try {
-                bgTransition();
-            } catch (InterruptedException ignored) {
-            }
-        });
-
-        bgThread.start();
-
+        this.initImagesCarousel();
+        this.initScrollPaneSettings();
     }
 
     public void shutdown() {
@@ -104,5 +94,32 @@ public class FxController {
 
         ParallelTransition parallelTransition = new ParallelTransition(fade1, fade2);
         parallelTransition.play();
+    }
+
+    private List<Image> images;
+    private Thread bgThread = null;
+
+    private void initImagesCarousel() {
+        // Image carousel (need to fix zombie thread)
+        images = ImagesLoader.loadImagesFromFolder(Launcher.getApp().getGameDir().resolve("bgImages"));
+        bgPane1.setStyle("-fx-background-image: url('" + images.get(0).getUrl() + "');");
+
+        bgThread = new Thread(() -> {
+            try {
+                bgTransition();
+            } catch (InterruptedException ignored) {
+            }
+        });
+
+        bgThread.start();
+    }
+
+    private void initScrollPaneSettings() {
+        final double SPEED = 0.00075;
+
+        notifScrollPane.getContent().setOnScroll(scrollEvent -> {
+            double deltaY = scrollEvent.getDeltaY() * SPEED;
+            notifScrollPane.setVvalue(notifScrollPane.getVvalue() - deltaY);
+        });
     }
 }

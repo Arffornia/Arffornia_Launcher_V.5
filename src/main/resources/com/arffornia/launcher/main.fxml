@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.String?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -171,7 +173,8 @@
                         </VBox>
                      </children>
                   </AnchorPane>
-                  <AnchorPane fx:id="mcPage" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                  <AnchorPane fx:id="mcPage" prefHeight="200.0" prefWidth="200.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                  <AnchorPane fx:id="photoPage" layoutX="20.0" layoutY="20.0" prefHeight="200.0" prefWidth="200.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                      <children>
                         <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="35.0" AnchorPane.rightAnchor="35.0" AnchorPane.topAnchor="0.0">
                            <children>
@@ -210,10 +213,149 @@
                               </HBox>
                            </children>
                         </VBox>
-                     </children>
-                  </AnchorPane>
-                  <AnchorPane fx:id="photoPage" layoutX="20.0" layoutY="20.0" prefHeight="200.0" prefWidth="200.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
-                  <AnchorPane fx:id="notifPage" layoutX="20.0" layoutY="20.0" prefHeight="200.0" prefWidth="200.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                     </children></AnchorPane>
+                  <AnchorPane fx:id="notifPage" layoutX="20.0" layoutY="20.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <children>
+                        <ScrollPane fx:id="notifScrollPane" hbarPolicy="NEVER" prefHeight="842.0" prefWidth="1148.0" styleClass="cleanBg" vbarPolicy="NEVER" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <content>
+                              <VBox prefWidth="1148.0" spacing="50.0">
+                                 <children>
+                                    <AnchorPane prefWidth="1148.0">
+                                       <children>
+                                          <VBox prefWidth="1148.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                             <children>
+                                                <Label text="News : Update" textFill="WHITE" underline="true">
+                                                   <font>
+                                                      <Font name="System Bold" size="28.0" />
+                                                   </font>
+                                                   <padding>
+                                                      <Insets bottom="20.0" />
+                                                   </padding>
+                                                </Label>
+                                                <Label graphicTextGap="0.0" prefWidth="1148.0" text="Nulla tempus in turpis at efficitur. Phasellus mollis, erat a rhoncus condimentum, quam leo posuere quam, ut dapibus sem ex vel leo. In tortor diam, interdum sed arcu congue, pretium finibus ipsum. Sed viverra congue tortor, a egestas purus pulvinar ut. Proin at nulla dui. Donec lacinia porttitor sem, ac faucibus urna pharetra eget. Suspendisse potenti. In ac eros consectetur, suscipit justo a, sollicitudin tortor. " textFill="WHITE" wrapText="true">
+                                                   <font>
+                                                      <Font size="24.0" />
+                                                   </font>
+                                                   <VBox.margin>
+                                                      <Insets />
+                                                   </VBox.margin>
+                                                </Label>
+                                             </children>
+                                          </VBox>
+                                       </children>
+                                       <styleClass>
+                                          <String fx:value="cleanBg" />
+                                          <String fx:value="overlayContent" />
+                                       </styleClass>
+                                    </AnchorPane>
+                                    <AnchorPane prefWidth="1148.0">
+                                       <children>
+                                          <VBox prefWidth="1148.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                             <children>
+                                                <Label text="News : Update" textFill="WHITE" underline="true">
+                                                   <font>
+                                                      <Font name="System Bold" size="28.0" />
+                                                   </font>
+                                                   <padding>
+                                                      <Insets bottom="20.0" />
+                                                   </padding>
+                                                </Label>
+                                                <Label prefWidth="1148.0" text="Phasellus interdum, nulla sed bibendum laoreet, justo risus malesuada tortor, eget mollis nisl dui at ligula." textFill="WHITE" wrapText="true">
+                                                   <font>
+                                                      <Font size="24.0" />
+                                                   </font>
+                                                </Label>
+                                             </children>
+                                          </VBox>
+                                       </children>
+                                       <styleClass>
+                                          <String fx:value="cleanBg" />
+                                          <String fx:value="overlayContent" />
+                                       </styleClass>
+                                    </AnchorPane>
+                                    <AnchorPane prefWidth="1148.0">
+                                       <children>
+                                          <VBox prefWidth="1148.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                             <children>
+                                                <Label text="News : Update" textFill="WHITE" underline="true">
+                                                   <font>
+                                                      <Font name="System Bold" size="28.0" />
+                                                   </font>
+                                                   <padding>
+                                                      <Insets bottom="20.0" />
+                                                   </padding>
+                                                </Label>
+                                                <Label prefWidth="1148.0" text="Phasellus interdum, nulla sed bibendum laoreet, justo risus malesuada tortor, eget mollis nisl dui at ligula." textFill="WHITE" wrapText="true">
+                                                   <font>
+                                                      <Font size="24.0" />
+                                                   </font>
+                                                </Label>
+                                             </children>
+                                          </VBox>
+                                       </children>
+                                       <styleClass>
+                                          <String fx:value="cleanBg" />
+                                          <String fx:value="overlayContent" />
+                                       </styleClass>
+                                    </AnchorPane>
+                                    <AnchorPane prefWidth="1148.0">
+                                       <children>
+                                          <VBox prefWidth="1148.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                             <children>
+                                                <Label text="News : Update" textFill="WHITE" underline="true">
+                                                   <font>
+                                                      <Font name="System Bold" size="28.0" />
+                                                   </font>
+                                                   <padding>
+                                                      <Insets bottom="20.0" />
+                                                   </padding>
+                                                </Label>
+                                                <Label prefWidth="1148.0" text="Nunc sodales eleifend magna, in consectetur justo finibus vitae. Fusce ex tellus, iaculis et sagittis eget, hendrerit vitae ante. Sed et commodo dolor." textFill="WHITE" wrapText="true">
+                                                   <font>
+                                                      <Font size="24.0" />
+                                                   </font>
+                                                </Label>
+                                             </children>
+                                          </VBox>
+                                       </children>
+                                       <styleClass>
+                                          <String fx:value="cleanBg" />
+                                          <String fx:value="overlayContent" />
+                                       </styleClass>
+                                    </AnchorPane>
+                                    <AnchorPane prefWidth="1148.0">
+                                       <children>
+                                          <VBox prefWidth="1148.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                             <children>
+                                                <Label text="News : Update" textFill="WHITE" underline="true">
+                                                   <font>
+                                                      <Font name="System Bold" size="28.0" />
+                                                   </font>
+                                                   <padding>
+                                                      <Insets bottom="20.0" />
+                                                   </padding>
+                                                </Label>
+                                                <Label prefWidth="1148.0" text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque a sapien ut sem consequat sagittis. Pellentesque accumsan eros sed libero aliquet, sit amet efficitur purus condimentum. Duis pulvinar euismod felis nec posuere. Maecenas non metus sodales, fermentum urna et, tristique urna. Quisque tristique justo a velit efficitur, eu semper tellus mattis. Phasellus sit amet urna libero. Etiam arcu justo, consectetur eget ante eleifend, placerat pellentesque nisl. Fusce purus purus, efficitur vitae lacus et, lacinia placerat neque. Nullam mattis est vel dui vehicula, consequat vehicula est lacinia. Nam eget ex eu nulla lacinia consequat vitae quis felis. Praesent feugiat a arcu ut rutrum. Nunc dictum est sit amet felis sagittis aliquet. Duis tincidunt eros at sem interdum, vel venenatis metus pellentesque. Donec sed velit nec velit hendrerit bibendum a vel lacus. Morbi vitae dolor lacinia, volutpat tellus quis, varius erat. Aenean accumsan nunc sed ex interdum, eget iaculis risus lacinia. " textFill="WHITE" wrapText="true">
+                                                   <font>
+                                                      <Font size="24.0" />
+                                                   </font>
+                                                </Label>
+                                             </children>
+                                          </VBox>
+                                       </children>
+                                       <styleClass>
+                                          <String fx:value="cleanBg" />
+                                          <String fx:value="overlayContent" />
+                                       </styleClass>
+                                    </AnchorPane>
+                                 </children>
+                                 <padding>
+                                    <Insets bottom="50.0" left="50.0" right="50.0" top="50.0" />
+                                 </padding>
+                              </VBox>
+                           </content>
+                        </ScrollPane>
+                     </children></AnchorPane>
                   <AnchorPane fx:id="settingsPage" layoutX="20.0" layoutY="20.0" prefHeight="200.0" prefWidth="200.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
                </children>
             </AnchorPane>
