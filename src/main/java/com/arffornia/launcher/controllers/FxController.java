@@ -12,7 +12,9 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.util.Duration;
 
+import java.net.URL;
 import java.util.List;
+import java.util.Objects;
 
 public class FxController {
     @FXML private Pane bgPane1;
@@ -38,8 +40,6 @@ public class FxController {
     @FXML protected void onPlayBtnClick() {
         Launcher.getApp().getLauncherController().launchGameSequence();
     }
-
-
 
     public void initialize() {
         this.initImagesCarousel();
@@ -103,6 +103,14 @@ public class FxController {
     private void initImagesCarousel() {
         // Image carousel (need to fix zombie thread)
         images = ImagesLoader.loadImagesFromFolder(Launcher.getApp().getGameDir().resolve("bgImages"));
+
+        // No images case
+        if(images.isEmpty()) {
+            URL defaultImgUrl = this.getClass().getResource("/com/arffornia/launcher/img/bg/mainBG.png");
+            bgPane1.setStyle("-fx-background-image: url('" + defaultImgUrl + "');");
+            return;
+        }
+
         bgPane1.setStyle("-fx-background-image: url('" + images.get(0).getUrl() + "');");
 
         bgThread = new Thread(() -> {
