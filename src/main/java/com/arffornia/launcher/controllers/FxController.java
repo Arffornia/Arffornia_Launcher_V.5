@@ -65,7 +65,7 @@ public class FxController {
         Pane tmp;
 
         while (true) {
-            pane2.setStyle("-fx-background-image: url('" + images.get(index++).getUrl() + "');");
+            pane2.setStyle("-fx-background-image: url('" + images.get(index++) + "');");
 
             if(index == images.size()) {
                 index = 0;
@@ -97,7 +97,7 @@ public class FxController {
         parallelTransition.play();
     }
 
-    private List<Image> images;
+    private List<String> images;
     private Thread bgThread = null;
 
     private void initImagesCarousel() {
@@ -111,16 +111,18 @@ public class FxController {
             return;
         }
 
-        bgPane1.setStyle("-fx-background-image: url('" + images.get(0).getUrl() + "');");
+        bgPane1.setStyle("-fx-background-image: url('" + images.get(0) + "');");
 
-        bgThread = new Thread(() -> {
-            try {
-                bgTransition();
-            } catch (InterruptedException ignored) {
-            }
-        });
+        if(images.size() > 1) {
+            bgThread = new Thread(() -> {
+                try {
+                    bgTransition();
+                } catch (InterruptedException ignored) {
+                }
+            });
 
-        bgThread.start();
+            bgThread.start();
+        }
     }
 
     private void initScrollPaneSettings() {

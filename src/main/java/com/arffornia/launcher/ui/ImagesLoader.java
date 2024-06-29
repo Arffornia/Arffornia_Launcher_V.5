@@ -8,8 +8,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ImagesLoader {
-    public static List<Image> loadImagesFromFolder(Path folderPath) {
-        List<Image> images = new ArrayList<>();
+    public static List<String> loadImagesFromFolder(Path folderPath) {
+        List<String> images = new ArrayList<>();
         File folder = folderPath.toFile();
         System.out.println("Path: " + folder.getAbsolutePath());
         File[] listOfFiles = folder.listFiles();
@@ -17,8 +17,7 @@ public class ImagesLoader {
         if(listOfFiles != null) {
             for (File file : listOfFiles) {
                 if (file.isFile() && isImageFile(file.getName())) {
-                    Image image = new Image(file.toURI().toString());
-                    images.add(image);
+                    images.add(file.toURI().toString());
                 }
             }
         }
